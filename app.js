@@ -23,7 +23,7 @@ app.get("/login", (req, res) => {
 app.get("/profile", isLoggedIn, async (req, res) => {
   let user = await userModel.findOne({email: req.user.email})
   console.log(user);  
-  res.render("/profile",{user});
+  res.render("profile",{user});
 });
 
 
@@ -63,7 +63,8 @@ app.post("/login", async (req, res) => {
     if(result) {
       let token = jwt.sign({email: user.email, userid: user._id}, "secret");
       res.cookie("token", token, {httpOnly: true, secure: false});
-      res.status(200).render("profile");
+        // set cookie then redirect so the /profile route (with isLoggedIn) loads the user
+        res.redirect("/profile");
     }
       else res.redirect("/login")
   })
