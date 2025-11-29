@@ -26,6 +26,17 @@ app.get("/profile", isLoggedIn, async (req, res) => {
   res.render("profile",{user});
 });
 
+app.get("/post", isLoggedIn, async (req, res) => {
+  let user = await userModel.findOne({email: req.user.email})
+  let {content} = req.body;
+let post = await postModel.create({
+    user: user._id,
+    content,
+  });
+
+  user.post.push(post_id)
+});
+
 
 app.post("/register", async (req, res) => {
   let { email, password, username, name, age } = req.body;
