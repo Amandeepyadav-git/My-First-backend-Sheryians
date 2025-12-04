@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
       const fn =name.toString("hex") + path.extname(file.originalname)
       cb(null, fn);
     });
-  },
+  }, 
 });
 const upload = multer({ storage: storage });
 
