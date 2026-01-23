@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
-//mongoose.connect("mongodb+srv://amandeepyadav0704_db_user:J9WdS4K6scFsjN65@cluster0.6puj4kg.mongodb.net/?appName=Cluster0");
-const uri = "mongodb+srv://amandeepyadav0704_db_user:J9WdS4K6scFsjN65@cluster0.6puj4kg.mongodb.net/?appName=Cluster0"
+const uri = "mongodb+srv://amandeepyadav0704_db_user:<passwordCluster>@cluster0.6puj4kg.mongodb.net/?appName=Cluster0"
 
 const client = new MongoClient(uri, {
   serverApi: {
